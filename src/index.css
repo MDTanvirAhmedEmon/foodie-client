@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.custom-border-bottom{
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
