@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-
 import Footer from "../Pages/shared/Footer";
 
 

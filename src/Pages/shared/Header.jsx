@@ -16,13 +16,13 @@ const Header = () => {
             </h1>
             {/* desktop navbar */}
             <div className="hidden md:block">
-                <nav>
-                    <ul className="flex space-x-8 text-xl text-white">
-                        <Link>Home</Link>
-                        <Link>Our Menu</Link>
-                        <Link>Offers</Link>
-                        <Link>About</Link>
-                        <Link>Contact</Link>
+                <nav className="z-50">
+                    <ul className="flex space-x-8 text-xl text-white ">
+                        <Link className="cursor-pointer" >Home</Link>
+                        <Link className="cursor-pointer" >Our Menu</Link>
+                        <Link className="cursor-pointer" >Offers</Link>
+                        <Link className="cursor-pointer" >About</Link>
+                        <Link className="cursor-pointer" >Contact</Link>
                     </ul>
                 </nav>
             </div>
@@ -36,15 +36,13 @@ const Header = () => {
                 <XMarkIcon onClick={() => setMenu(!menu)} className="h-7 w-7 mb-7"/>
                 <nav className="">
                         <ul className="flex flex-col space-y-5">
-                            <Link onClick={() => setMenu(!menu)} >Home</Link>
-                            <Link onClick={() => setMenu(!menu)}>Our Menu</Link>
-                            <Link onClick={() => setMenu(!menu)}>Offers</Link>
-                            <Link onClick={() => setMenu(!menu)}>About</Link>
-                            <Link onClick={() => setMenu(!menu)}>Contact</Link>
+                            <Link className="cursor-pointer" onClick={() => setMenu(!menu)} >Home</Link>
+                            <Link className="cursor-pointer" onClick={() => setMenu(!menu)}>Our Menu</Link>
+                            <Link className="cursor-pointer" onClick={() => setMenu(!menu)}>Offers</Link>
+                            <Link className="cursor-pointer" onClick={() => setMenu(!menu)}>About</Link>
+                            <Link className="cursor-pointer" onClick={() => setMenu(!menu)}>Contact</Link>
                         </ul>
                     </nav>
-
-
             </div>
         </div>
         
