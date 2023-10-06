@@ -4,7 +4,7 @@ const Hero = () => {
     return (
         <div className="lg:h-screen pb-20 md:pb-24 lg:pb-0 bg-primary">
             <Header></Header>
-            <div className="container mx-auto">
+            <div className="container mx-auto ">
                 <div className="mt-20 px-3 md:px-0">
                     <div className="w-auto md:w-[550px]">
                         <div>
@@ -24,7 +24,7 @@ const Hero = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="md:absolute top-32 lg:top-40 xl:top-0 right-0 2xl:right-32 mt-10 md:mt-0">
+                    <div className="md:absolute top-32 lg:top-40 xl:top-20 right-0 2xl:right-32 mt-10 md:mt-0">
                         <img className="w-[500px] lg:w-[500px] xl:w-[700px] 2xl:w-[900px]" src={heroImg} alt="" />
                     </div>
                 </div>
