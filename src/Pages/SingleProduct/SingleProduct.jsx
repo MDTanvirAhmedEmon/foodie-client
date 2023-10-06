@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useGetSingleProductQuery } from "../../redux/api/apiSlice";
 import Header from "../shared/Header";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/features/cart/cartSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 const SingleProduct = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(id);
   const { data, isLoading } = useGetSingleProductQuery(id);
-  console.log(data);
+
   if (isLoading) {
     return <div className="text-center text-2xl mt-8">Loading...</div>;
   }
@@ -16,7 +19,7 @@ const SingleProduct = () => {
       <div className="h-20 bg-primary">
         <Header></Header>
       </div>
-      <div className="w-auto xl:w-[1200px] mx-auto py-14 md:py-24 flex flex-col md:flex-row items-center justify-between">
+      <div className="w-auto xl:w-[1200px] mx-auto py-7 md:py-24 flex flex-col md:flex-row items-center justify-between">
         <div>
             <img className="w-auto lg:w-[450px]" src={data.data.imageUrl} alt="" />
         </div>
@@ -28,7 +31,11 @@ const SingleProduct = () => {
                 data.data.discountPrice && <p className="text-2xl text-primary font-bold mb-5">Discount Price: ${data.data.discountPrice}</p>
             }
             <p className="text-lg">About: {data.data.description}</p>
-            <button className="bg-primary py-3 px-6 text-lg font-semibold text-white rounded-lg mt-10">Add TO Cart</button>
+            <button onClick={() => {
+              dispatch(addToCart(data.data))
+              toast.success('Burger Added To Cart')
+            }} className="bg-primary py-3 px-6 text-lg font-semibold text-white rounded-lg mt-10">Add TO Cart</button>
+            <Toaster></Toaster>
         </div>
       </div>
     </div>

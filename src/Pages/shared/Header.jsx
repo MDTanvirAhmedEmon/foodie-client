@@ -7,7 +7,7 @@ const Header = () => {
     console.log(menu);
 
   return (
-    <div className='bg-transparent z-50'>
+    <div className='bg-transparent z-[999]'>
 
       <div className="container mx-auto h-20 px-5 md:px-0">
         <div className="flex items-center h-20 justify-between">
