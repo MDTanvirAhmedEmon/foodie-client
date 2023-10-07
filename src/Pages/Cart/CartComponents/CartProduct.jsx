@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import { TrashIcon } from "@heroicons/react/24/solid";
 import { useDispatch } from "react-redux";
 import {
   addToCart,
@@ -39,9 +39,9 @@ const CartProduct = ({ product }) => {
             />
           </div>
 
-          <XMarkIcon
+          <TrashIcon
             onClick={() => dispatch(removeAll(product))}
-            className="h-10 w-10 cursor-pointer bg-primary text-white rounded-lg ml-3 md:ml-10"
+            className="h-6 w-6 cursor-pointer text-primary rounded-lg ml-3 md:ml-10"
           />
         </div>
       </div>

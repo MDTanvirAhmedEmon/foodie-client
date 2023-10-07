@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.custom-border-bottom{
-    border-bottom: 1px solid rgb(219, 219, 219);
+.custom-border-bottom {
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+::selection {
+  color: white;
+  background: #e63945;
+}
+
+* {
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }

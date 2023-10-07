@@ -1,5 +1,6 @@
 import Header from "../../shared/Header";
 import heroImg from "../../../assets/hero-img.png"
+
 const Hero = () => {
     return (
         <div className="lg:h-screen pb-20 md:pb-24 lg:pb-0 bg-primary">

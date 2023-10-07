@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Header from "../shared/Header";
 import emptyCart from "../../assets/empty_cart.png";
 import CartProduct from "./CartComponents/CartProduct";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { products, total } = useSelector((state) => state.cart);
@@ -26,19 +27,25 @@ const Cart = () => {
         <Header></Header>
       </div>
       <div className="container mx-auto px-4 md:px-0 ">
-        <div className="flex flex-col lg:flex-row gap-10 py-14">
+        <div className="flex flex-col lg:flex-row gap-10 py-7 md:py-14">
           <div className="">
-            <p className="text-3xl font-bold mb-7">Main Course:</p>
+            <p className="text-3xl font-bold mb-7">Your Cart:</p>
             {products.map((product) => (
               <CartProduct key={product._id} product={product}></CartProduct>
             ))}
+
+            <div className="px-4 md:px-0 mt-10">
+              <p className="text-3xl font-bold">
+                Total Price: ${total.toFixed(2)}
+              </p>
+              <Link to={'/checkout'}> <button className="bg-primary py-3 px-6 text-lg font-semibold text-white rounded-lg mt-5 md:mt-10 ">
+                Proceed To Checkout
+              </button></Link>
+            </div>
           </div>
           <div>
-            <p className="text-3xl font-bold mb-7">Extras:</p>
+            <p className="text-3xl font-bold mb-7">Add Drinks:</p>
           </div>
-        </div>
-        <div className="px-4 md:px-0">
-          <p className="text-3xl font-bold">Total Price: ${total}</p>
         </div>
       </div>
     </div>
