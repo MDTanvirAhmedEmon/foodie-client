@@ -36,7 +36,7 @@ const OurMenu = () => {
           </div>
         </div>
       </div>
-      <div className="w-auto lg:w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-16 px-5 md:px-0">
+      <div className="w-auto xl:w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-16 px-5 md:px-0">
         {data?.data?.map((product) => (
           <ProductCart key={product._id} product={product}></ProductCart>
         ))}

@@ -22,7 +22,9 @@ const SingleProduct = () => {
   }
 
   return (
+    
     <div>
+
       <div className="h-20 bg-primary">
         <Header></Header>
       </div>
@@ -57,9 +59,10 @@ const SingleProduct = () => {
           >
             Add TO Cart
           </button>
-          <Toaster></Toaster>
+
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

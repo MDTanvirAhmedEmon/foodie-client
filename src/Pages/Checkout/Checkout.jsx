@@ -5,6 +5,7 @@ import CheckoutProductCart from "./CheckoutComponents/CheckoutProductCart";
 const Checkout = () => {
   const { products, total } = useSelector((state) => state.cart);
 
+
   return (
     <div>
       <div className="h-20 bg-primary">
@@ -116,7 +117,7 @@ const Checkout = () => {
                   product={product}
                 ></CheckoutProductCart>
               ))}
-              <p className="text-xl font-bold mt-4 ml-12">
+              <p className="text-xl font-bold mt-4">
                 Total: ${total.toFixed(2)}
               </p>
             </div>
@@ -125,6 +126,7 @@ const Checkout = () => {
               type="submit"
               value="Make Order"
             />
+
           </form>
         </div>
 
