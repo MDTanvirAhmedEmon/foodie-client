@@ -5,6 +5,8 @@ import OurMenu from "../Pages/OurMenu/OurMenu";
 import SingleProduct from "../Pages/SingleProduct/SingleProduct";
 import Cart from "../Pages/Cart/Cart";
 import Checkout from "../Pages/Checkout/Checkout";
+import Register from "../Pages/Register/Register";
+import LogIn from "../Pages/LogIn/LogIn";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout></Checkout>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
       },
     ],
   },

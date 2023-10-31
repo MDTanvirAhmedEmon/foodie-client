@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import { useGetSingleProductQuery } from "../../redux/api/apiSlice";
 import Header from "../shared/Header";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/features/cart/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
+import { useGetSingleProductQuery } from "../../redux/features/products/productApi";
 
 const SingleProduct = () => {
   const dispatch = useDispatch();

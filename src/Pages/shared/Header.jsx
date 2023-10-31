@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const Header = () => {
     const [menu, setMenu] = useState(false);
-    console.log(menu);
 
   return (
     <div className='bg-transparent z-[999]'>
@@ -23,7 +22,8 @@ const Header = () => {
                         <Link to={'/our-menu'} className="cursor-pointer" >Our Menu</Link>
                         <Link to={'/'} className="cursor-pointer" >Offers</Link>
                         <Link to={'/'} className="cursor-pointer" >About</Link>
-                        <Link to={'/'} className="cursor-pointer" >Contact</Link>
+                        <Link to={'/login'} className="cursor-pointer" >Log In</Link>
+                        <Link to={'/register'} className="cursor-pointer" >Register</Link>
                     </ul>
                 </nav>
             </div>
@@ -41,7 +41,8 @@ const Header = () => {
                             <Link to={'/our-menu'} className="cursor-pointer" onClick={() => setMenu(!menu)}>Our Menu</Link>
                             <Link to={'/'} className="cursor-pointer" onClick={() => setMenu(!menu)}>Offers</Link>
                             <Link to={'/'} className="cursor-pointer" onClick={() => setMenu(!menu)}>About</Link>
-                            <Link to={'/'} className="cursor-pointer" onClick={() => setMenu(!menu)}>Contact</Link>
+                            <Link to={'/login'} className="cursor-pointer" onClick={() => setMenu(!menu)}>Log In</Link>
+                            <Link to={'/register'} className="cursor-pointer" onClick={() => setMenu(!menu)}>Register</Link>
                         </ul>
                     </nav>
             </div>

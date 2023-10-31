@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
-import { useGetProductsQuery } from "../../../redux/api/apiSlice";
 import ProductCart from "../../OurMenu/OurMenuComponents/productCart";
+import { useGetProductsQuery } from "../../../redux/features/products/productApi";
 
 const FeaturedProducts = () => {
     const {data , isLoading} = useGetProductsQuery();

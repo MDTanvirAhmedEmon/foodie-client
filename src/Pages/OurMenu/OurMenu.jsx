@@ -1,4 +1,5 @@
-import { useGetProductsQuery } from "../../redux/api/apiSlice";
+
+import { useGetProductsQuery } from "../../redux/features/products/productApi";
 import Header from "../shared/Header";
 import ProductCart from "./OurMenuComponents/productCart";
 
