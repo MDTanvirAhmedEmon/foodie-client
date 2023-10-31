@@ -1,13 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../shared/Header";
 import { useForm } from "react-hook-form";
+import { useCreateUserMutation } from "../../redux/features/user/userApi";
+import { useDispatch, useSelector } from "react-redux";
+import { addToken } from "../../redux/features/user/tokenSlice";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { token } = useSelector((state) => state.userToken);
   const { register, handleSubmit } = useForm();
+  const [createUser, { data: registerData, error }] = useCreateUserMutation();
+  console.log(registerData);
+  const dispatch = useDispatch();
 
   const handleFormData = (data) => {
-    console.log(data);
+    const registrationDate = new Date().toISOString();
+    const timeAndRole = {
+      registrationDate,
+      role: "user",
+    };
+    createUser({ ...data, ...timeAndRole });
+    console.log({ ...data, ...timeAndRole });
   };
+  if (registerData?.data?.accessToken) {
+    dispatch(addToken(registerData?.data?.accessToken));
+  }
+  if (token) {
+    navigate("/");
+  }
 
   return (
     <div>
@@ -109,10 +129,11 @@ const Register = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="Post Office ZIP Code"
                   type="text"
-                  {...register("zip", { required: true })}
+                  {...register("zipCode", { required: true })}
                 />
               </div>
             </div>
+            <p className="text-primary mt-3">{error?.data?.message}</p>
 
             <div>
               <input
@@ -123,7 +144,10 @@ const Register = () => {
             </div>
             <p className="ml-3 md:ml-0">
               Already Have An Account?{" "}
-              <Link to={"/login"} className=" text-blue-900 font-semibold md:ml-2">
+              <Link
+                to={"/login"}
+                className=" text-blue-900 font-semibold md:ml-2"
+              >
                 {" "}
                 Log In
               </Link>

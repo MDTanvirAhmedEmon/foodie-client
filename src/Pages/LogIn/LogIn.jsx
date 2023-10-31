@@ -1,13 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../shared/Header";
 import { useForm } from "react-hook-form";
+import { useLogInUserMutation } from "../../redux/features/user/userApi";
+import { useDispatch, useSelector } from "react-redux";
+import { addToken } from "../../redux/features/user/tokenSlice";
+
 
 const LogIn = () => {
+  const navigate = useNavigate();
+  const {token} = useSelector((state) => state.userToken)
+  const [logInUser, { data: loginData, error }] = useLogInUserMutation();
+
+  const dispatch = useDispatch();
+
   const { register, handleSubmit } = useForm();
 
   const handleFormData = (data) => {
-    console.log(data);
+    logInUser(data);
   };
+
+  dispatch(addToken(loginData?.data?.accessToken));
+
+  if(token){
+    navigate('/')
+  }
+
 
   return (
     <div>
@@ -40,6 +57,7 @@ const LogIn = () => {
                 {...register("password", { required: true })}
               />
             </div>
+              <p className="text-primary mt-3">{error?.data?.message}</p>
             <div>
               <input
                 className=" bg-primary text-white py-3 w-full rounded-md mt-10 text-lg font-bold cursor-pointer mb-8"
