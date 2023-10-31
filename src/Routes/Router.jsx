@@ -7,6 +7,8 @@ import Cart from "../Pages/Cart/Cart";
 import Checkout from "../Pages/Checkout/Checkout";
 import Register from "../Pages/Register/Register";
 import LogIn from "../Pages/LogIn/LogIn";
+import Profile from "../Pages/Profile/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout></Checkout>,
+        element: <PrivateRoute> <Checkout></Checkout></PrivateRoute>,
       },
       {
         path: "/register",
@@ -40,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <LogIn></LogIn>,
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>,
       },
     ],
   },
