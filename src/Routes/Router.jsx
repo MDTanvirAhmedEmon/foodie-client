@@ -9,6 +9,9 @@ import Register from "../Pages/Register/Register";
 import LogIn from "../Pages/LogIn/LogIn";
 import Profile from "../Pages/Profile/Profile";
 import PrivateRoute from "./PrivateRoute";
+import ThankYou from "../Pages/ThankYou/ThankYou";
+import ProfileLayout from "../layout/ProfileLayout";
+import MyOrder from "../Pages/MyOrder/MyOrder";
 
 export const router = createBrowserRouter([
   {
@@ -44,9 +47,23 @@ export const router = createBrowserRouter([
         element: <LogIn></LogIn>,
       },
       {
-        path: "/profile",
-        element: <Profile></Profile>,
+        path: "/thank-you",
+        element: <PrivateRoute><ThankYou></ThankYou></PrivateRoute>,
       },
     ],
+  },
+  {
+    path: '/profile',
+    element: <PrivateRoute><ProfileLayout></ProfileLayout></PrivateRoute>,
+    children: [
+      {
+        path: "/profile",
+        element: <Profile></Profile>
+      },
+      {
+        path: '/profile/my-order',
+        element: <MyOrder></MyOrder>
+      }
+    ]
   },
 ]);
