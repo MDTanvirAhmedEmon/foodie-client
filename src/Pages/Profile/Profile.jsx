@@ -1,51 +1,144 @@
+import { useForm } from "react-hook-form";
 import { useGetSingleUserQuery } from "../../redux/features/products/productApi";
+import { useUpdateUserMutation } from "../../redux/features/order/orderApi";
+
+
 
 const Profile = () => {
-  const { data } = useGetSingleUserQuery();
+//   const { data } = useGetSingleUserQuery();
+
+
+  const { register, handleSubmit } = useForm();
+    const { data:currentUser } = useGetSingleUserQuery(undefined, {refetchOnMountOrArgChange: true});
+
+  const [updateUser, {data:UpdatedUser}] = useUpdateUserMutation();
+  console.log(UpdatedUser)
+
+
+  const handleFormData = (data) => {
+    const updatedData = {
+      id: currentUser?.data?._id,
+      data: data
+    };
+    updateUser(updatedData);
+
+  };
+
+  if(UpdatedUser) {
+    window.location.reload();
+  }
+
 
   return (
-<div className=" p-6 rounded-lg shadow-lg mt-10">
     <div className="container mx-auto">
-        <div className="mt-8">
-            <p className="text-3xl font-extrabold text-gray-800 mb-4 text-center">Profile Details</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <div className="space-y-4">
-                        <p className="text-xl font-semibold text-gray-600">Name</p>
-                        <p className="text-xl text-gray-800">{data?.data?.firstName} {data?.data?.lastName}</p>
-                    </div>
-                    <div className="space-y-4">
-                        <p className="text-xl font-semibold text-gray-600">Email</p>
-                        <p className="text-xl text-gray-800">{data?.data?.email}</p>
-                    </div>
-                    <div className="space-y-4">
-                        <p className="text-xl font-semibold text-gray-600">Phone</p>
-                        <p className="text-xl text-gray-800">{data?.data?.phone}</p>
-                    </div>
-                </div>
-                <div>
-                    <div className="space-y-4">
-                        <p className="text-xl font-semibold text-gray-600">Address</p>
-                        <p className="text-xl text-gray-800">{data?.data?.address}</p>
-                    </div>
-                    <div className="space-y-4">
-                        <p className="text-xl font-semibold text-gray-600">District</p>
-                        <p className="text-xl text-gray-800">{data?.data?.district}</p>
-                    </div>
-                    <div className="space-y-4">
-                        <p className="text-xl font-semibold text-gray-600">Upazila</p>
-                        <p className="text-xl text-gray-800">{data?.data?.upazila}</p>
-                    </div>
-                    <div className="space-y-4">
-                        <p className="text-xl font-semibold text-gray-600">ZIP Code</p>
-                        <p className="text-xl text-gray-800">{data?.data?.zipCode}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+      <div className=" ">
+        <p className="text-3xl font-bold mt-8 mb-2 md:mb-6 text-center md:text-left">My Details</p>
 
+        <form
+          onSubmit={handleSubmit(handleFormData)}
+          className="w-auto px-3 md:px-0 mx-auto"
+        >
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col mt-3 md:w-1/2">
+              <label htmlFor="">First Name</label>
+              <input
+                className="border rounded-md p-3 mt-2 bg-slate-100"
+                placeholder="First Name"
+                type="text"
+                defaultValue={currentUser?.data?.firstName}
+                {...register("firstName", { required: true })}
+              />
+            </div>
+            <div className="flex flex-col mt-3 md:w-1/2">
+              <label htmlFor="">Last Name</label>
+              <input
+                className="border rounded-md p-3 mt-2 bg-slate-100"
+                placeholder="Last Name"
+                type="text"
+                defaultValue={currentUser?.data?.lastName}
+                {...register("lastName", { required: true })}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row  gap-4 mt-3 md:mt-4 ">
+            <div className="flex flex-col mt-3 md:w-1/2">
+              <label htmlFor="">Email</label>
+              <input
+                className="border rounded-md p-3 mt-2 bg-slate-100"
+                placeholder="Your Email"
+                type="email"
+                defaultValue={currentUser?.data?.email}
+                {...register("email", { required: true })}
+              />
+            </div>
+            <div className="flex flex-col mt-3 md:w-1/2">
+              <label htmlFor="">Phone</label>
+              <input
+                className="border rounded-md p-3 mt-2 bg-slate-100"
+                placeholder="Your Phone Number"
+                type="phone"
+                defaultValue={currentUser?.data?.phone}
+                {...register("phone", { required: true })}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col mt-3">
+            <label htmlFor="">Address</label>
+            <input
+              className="border rounded-md p-3 mt-2 bg-slate-100"
+              placeholder="Address In Detail"
+              type="text"
+              defaultValue={currentUser?.data?.address}
+              {...register("address", { required: true })}
+            />
+          </div>
+
+          <div className="flex flex-col md:flex-row  gap-4 mt-3 md:mt-4 ">
+            <div className="flex flex-col mt-3 md:w-1/3">
+              <label htmlFor="">District</label>
+              <input
+                className="border rounded-md p-3 mt-2 bg-slate-100"
+                placeholder="District"
+                type="text"
+                defaultValue={currentUser?.data?.district}
+                {...register("district", { required: true })}
+              />
+            </div>
+            <div className="flex flex-col mt-3 md:w-1/3">
+              <label htmlFor="">Upazila</label>
+              <input
+                className="border rounded-md p-3 mt-2 bg-slate-100"
+                placeholder="Upazila"
+                type="text"
+                defaultValue={currentUser?.data?.upazila}
+                {...register("upazila", { required: true })}
+              />
+            </div>
+            <div className="flex flex-col mt-3 md:w-1/3">
+              <label htmlFor="">PostCode/ZIP</label>
+              <input
+                className="border rounded-md p-3 mt-2 bg-slate-100"
+                placeholder="Post Office ZIP Code"
+                type="text"
+                defaultValue={currentUser?.data?.zipCode}
+                {...register("zipCode", { required: true })}
+              />
+            </div>
+          </div>
+          {
+              UpdatedUser && <p className=" text-green-600 mt-4">Update Was Successful!</p>
+          }
+
+          <input 
+            className="bg-primary py-3 px-6 text-lg font-semibold text-white rounded-lg mt-5 md:mt-10 cursor-pointer"
+            type="submit"
+            value="Save Changes"
+          />
+        </form>
+      </div>
+    </div>
   );
 };
 

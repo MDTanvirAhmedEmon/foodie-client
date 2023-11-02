@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import ThankYou from "../Pages/ThankYou/ThankYou";
 import ProfileLayout from "../layout/ProfileLayout";
 import MyOrder from "../Pages/MyOrder/MyOrder";
+import OrderDetails from "../Pages/MyOrder/MyOrderComponent/OrderDetails";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: '/profile/my-order',
         element: <MyOrder></MyOrder>
+      },
+      {
+        path: '/profile/my-order/:id',
+        element: <OrderDetails></OrderDetails>
       }
     ]
   },

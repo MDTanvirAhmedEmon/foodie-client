@@ -10,6 +10,7 @@ const productApi = api.injectEndpoints({
     }),
     getSingleUser: builder.query({
       query: () => `/users/single-user`,
+      providesTags: ['user'],
     }),
   }),
 });
