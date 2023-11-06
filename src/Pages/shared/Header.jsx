@@ -32,6 +32,9 @@ const Header = () => {
                 <Link to={"/"} className="cursor-pointer">
                   About
                 </Link>
+                <Link to={"/admin-panel"} className="cursor-pointer">
+                  Admin Panel
+                </Link>
                 {token ? (
                   <Link to={"/profile"}>Profile</Link>
                 ) : (

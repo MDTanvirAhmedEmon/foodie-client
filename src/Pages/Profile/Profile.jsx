@@ -42,7 +42,7 @@ const Profile = () => {
             <div className="flex flex-col mt-3 md:w-1/2">
               <label htmlFor="">First Name</label>
               <input
-                className="border rounded-md p-3 mt-2 bg-slate-100"
+                className="border rounded-md p-3 mt-2 bg-blue-gray-50"
                 placeholder="First Name"
                 type="text"
                 defaultValue={currentUser?.data?.firstName}
@@ -52,7 +52,7 @@ const Profile = () => {
             <div className="flex flex-col mt-3 md:w-1/2">
               <label htmlFor="">Last Name</label>
               <input
-                className="border rounded-md p-3 mt-2 bg-slate-100"
+                className="border rounded-md p-3 mt-2 bg-blue-gray-50"
                 placeholder="Last Name"
                 type="text"
                 defaultValue={currentUser?.data?.lastName}
@@ -65,7 +65,7 @@ const Profile = () => {
             <div className="flex flex-col mt-3 md:w-1/2">
               <label htmlFor="">Email</label>
               <input
-                className="border rounded-md p-3 mt-2 bg-slate-100"
+                className="border rounded-md p-3 mt-2 bg-blue-gray-50"
                 placeholder="Your Email"
                 type="email"
                 defaultValue={currentUser?.data?.email}
@@ -75,7 +75,7 @@ const Profile = () => {
             <div className="flex flex-col mt-3 md:w-1/2">
               <label htmlFor="">Phone</label>
               <input
-                className="border rounded-md p-3 mt-2 bg-slate-100"
+                className="border rounded-md p-3 mt-2 bg-blue-gray-50"
                 placeholder="Your Phone Number"
                 type="phone"
                 defaultValue={currentUser?.data?.phone}
@@ -87,7 +87,7 @@ const Profile = () => {
           <div className="flex flex-col mt-3">
             <label htmlFor="">Address</label>
             <input
-              className="border rounded-md p-3 mt-2 bg-slate-100"
+              className="border rounded-md p-3 mt-2 bg-blue-gray-50"
               placeholder="Address In Detail"
               type="text"
               defaultValue={currentUser?.data?.address}
@@ -99,7 +99,7 @@ const Profile = () => {
             <div className="flex flex-col mt-3 md:w-1/3">
               <label htmlFor="">District</label>
               <input
-                className="border rounded-md p-3 mt-2 bg-slate-100"
+                className="border rounded-md p-3 mt-2 bg-blue-gray-50"
                 placeholder="District"
                 type="text"
                 defaultValue={currentUser?.data?.district}
@@ -109,7 +109,7 @@ const Profile = () => {
             <div className="flex flex-col mt-3 md:w-1/3">
               <label htmlFor="">Upazila</label>
               <input
-                className="border rounded-md p-3 mt-2 bg-slate-100"
+                className="border rounded-md p-3 mt-2 bg-blue-gray-50"
                 placeholder="Upazila"
                 type="text"
                 defaultValue={currentUser?.data?.upazila}
@@ -119,7 +119,7 @@ const Profile = () => {
             <div className="flex flex-col mt-3 md:w-1/3">
               <label htmlFor="">PostCode/ZIP</label>
               <input
-                className="border rounded-md p-3 mt-2 bg-slate-100"
+                className="border rounded-md p-3 mt-2 bg-blue-gray-50"
                 placeholder="Post Office ZIP Code"
                 type="text"
                 defaultValue={currentUser?.data?.zipCode}

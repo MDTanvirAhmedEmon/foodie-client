@@ -21,14 +21,15 @@ const Checkout = () => {
   console.log(UpdatedUser)
   const [makeOrder, {data:myOrderData, isLoading}] = useMakeOrderMutation();
   console.log(myOrderData)
-
+  const burgerOrderDate = new Date().toISOString();
+  console.log(burgerOrderDate);
   const handleFormData = (data) => {
     const updatedData = {
       id: currentUser?.data?._id,
       data: data
     };
     updateUser(updatedData);
-    const burgerOrderDate = new Date().toISOString();
+
     const orderData = {
       user: currentUser?.data?._id,
       product: products,

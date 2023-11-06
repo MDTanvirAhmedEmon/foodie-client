@@ -22,7 +22,7 @@ const Hero = () => {
                             </div>
                             <div className="mt-10 ml-0 lg:ml-10">
                                 <p className="text-2xl md:text-3xl lx:text-4xl font-bold text-white">On your first order, if you order online through our App!</p>
-                                <Link to={'/our-menu'}><button className="mt-10 bg-slate-100 py-3 px-8 shadow-2xl text-secondary font-bold text-xl rounded-full">Order Online</button></Link> 
+                                <Link to={'/our-menu'}><button className="mt-10 bg-slate-100 py-3 px-8 shadow-2xl bg-secondary text-white font-bold text-xl rounded-full">Order Online</button></Link> 
                             </div>
                         </div>
                     </div>

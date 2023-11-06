@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "vite start",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@material-tailwind/react": "^2.1.4",
     "@reduxjs/toolkit": "^1.9.7",
     "jwt-decode": "^4.0.0",
     "localforage": "^1.10.0",

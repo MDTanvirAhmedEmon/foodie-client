@@ -13,6 +13,9 @@ import ThankYou from "../Pages/ThankYou/ThankYou";
 import ProfileLayout from "../layout/ProfileLayout";
 import MyOrder from "../Pages/MyOrder/MyOrder";
 import OrderDetails from "../Pages/MyOrder/MyOrderComponent/OrderDetails";
+import Admin from "../layout/Admin";
+import DashBoard from "../Pages/Admin/DashBoard/DashBoard";
+import Orders from "../Pages/Admin/Orders/Orders";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +72,20 @@ export const router = createBrowserRouter([
         path: '/profile/my-order/:id',
         element: <OrderDetails></OrderDetails>
       }
+    ]
+  },
+  {
+    path: '/admin-panel',
+    element: <PrivateRoute><Admin></Admin></PrivateRoute>,
+    children: [
+      {
+        path: "/admin-panel",
+        element: <DashBoard></DashBoard>
+      },
+      {
+        path: "/admin-panel/orders",
+        element: <Orders></Orders>
+      },
     ]
   },
 ]);

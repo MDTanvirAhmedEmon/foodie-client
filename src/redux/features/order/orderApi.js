@@ -20,10 +20,13 @@ const orderApi = api.injectEndpoints({
     getMyOrder: builder.query({
       query: () => `/order`,
     }),
+    getAllOrder: builder.query({
+      query: () => `/order`,
+    }),
     getSingleOrder: builder.query({
       query: (id) => `/order/${id}`,
     }),
   }),
 });
 
-export const { useUpdateUserMutation, useMakeOrderMutation, useGetMyOrderQuery, useGetSingleOrderQuery } = orderApi;
+export const { useUpdateUserMutation, useMakeOrderMutation, useGetMyOrderQuery, useGetSingleOrderQuery, useGetAllOrderQuery } = orderApi;
