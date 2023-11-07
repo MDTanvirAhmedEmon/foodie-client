@@ -21,7 +21,7 @@ const orderApi = api.injectEndpoints({
       query: () => `/order`,
     }),
     getAllOrder: builder.query({
-      query: () => `/order`,
+      query: (page) => `/order?page=${page}`,
     }),
     getSingleOrder: builder.query({
       query: (id) => `/order/${id}`,

@@ -5,10 +5,11 @@ import tokenReducer from "./features/user/tokenSlice";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["api"],
+  blacklist: ["api","orderSlice"],
 };
 
 const rootReducer = combineReducers({
