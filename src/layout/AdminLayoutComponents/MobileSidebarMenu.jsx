@@ -52,7 +52,7 @@ export function MobileSidebarMenu({ setMenu, menu }) {
           <ListItemPrefix>
             <InboxIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Inbox
+          Products
           <ListItemSuffix>
             <Chip
               value="14"
@@ -67,7 +67,7 @@ export function MobileSidebarMenu({ setMenu, menu }) {
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Profile
+          Users
         </ListItem>
         <ListItem>
           <ListItemPrefix>

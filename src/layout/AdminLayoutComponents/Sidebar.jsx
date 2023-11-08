@@ -41,7 +41,7 @@ import { Link } from "react-router-dom";
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
-            Inbox
+            Products
             <ListItemSuffix>
               <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
             </ListItemSuffix>
@@ -50,7 +50,7 @@ import { Link } from "react-router-dom";
             <ListItemPrefix>
               <UserCircleIcon className="h-5 w-5" />
             </ListItemPrefix>
-            Profile
+            Users
           </ListItem>
           <ListItem>
             <ListItemPrefix>

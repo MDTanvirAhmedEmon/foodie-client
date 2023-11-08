@@ -16,6 +16,7 @@ import OrderDetails from "../Pages/MyOrder/MyOrderComponent/OrderDetails";
 import Admin from "../layout/Admin";
 import DashBoard from "../Pages/Admin/DashBoard/DashBoard";
 import Orders from "../Pages/Admin/Orders/Orders";
+import UpdateOrder from "../Pages/Admin/Orders/UpdateOrder";
 
 export const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ export const router = createBrowserRouter([
       {
         path: "/admin-panel/orders",
         element: <Orders></Orders>
+      },
+      {
+        path: "/admin-panel/orders/update/:id",
+        element: <UpdateOrder></UpdateOrder>
       },
     ]
   },

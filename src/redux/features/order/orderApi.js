@@ -17,16 +17,26 @@ const orderApi = api.injectEndpoints({
         body: data,
       }),
     }),
+    updateOrder: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/order/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ['order'],
+    }),
     getMyOrder: builder.query({
       query: () => `/order`,
     }),
     getAllOrder: builder.query({
       query: (page) => `/order?page=${page}`,
+      providesTags: ['order'],
     }),
     getSingleOrder: builder.query({
       query: (id) => `/order/${id}`,
+      providesTags: ['order'],
     }),
   }),
 });
 
-export const { useUpdateUserMutation, useMakeOrderMutation, useGetMyOrderQuery, useGetSingleOrderQuery, useGetAllOrderQuery } = orderApi;
+export const { useUpdateUserMutation, useMakeOrderMutation, useGetMyOrderQuery, useGetSingleOrderQuery, useGetAllOrderQuery, useUpdateOrderMutation } = orderApi;

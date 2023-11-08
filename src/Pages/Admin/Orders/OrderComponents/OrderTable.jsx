@@ -7,14 +7,13 @@ import {
   Avatar,
   IconButton,
   Tooltip,
-
 } from "@material-tailwind/react";
 import userImage from "../../../../assets/user2.png";
 import { useGetAllOrderQuery } from "../../../../redux/features/order/orderApi";
 import { Pagination } from "./Pagination";
 import { useState } from "react";
 import { Select, Option } from "@material-tailwind/react";
-
+import { Link } from "react-router-dom";
 
 const TABLE_HEAD = [
   "Product Name",
@@ -37,19 +36,29 @@ export function OrderTable() {
   const totalData = data?.meta?.total;
   console.log(totalData);
 
+
   return (
     <div className="mt-6">
-      <div className="flex justify-between items-center pr-8"> 
+      <div className="flex justify-between items-center pr-8">
         <div>
           <p>Order</p>
         </div>
         <div className="w-72">
-        <Select label="Filter By Status">
-          <Option>Pending</Option>
-          <Option>Processing</Option>
-          <Option>Delivered</Option>
-        </Select>
-      </div>
+          <Select label="Filter By Status">
+          <Option className=" cursor-pointer" value="pending">
+            Pending
+          </Option>
+          <Option className=" cursor-pointer" value="processing">
+            Processing
+          </Option>
+          <Option className=" cursor-pointer" value="delivered">
+            Delivered
+          </Option>
+          <Option className=" cursor-pointer" value="cancel">
+            Cancel
+          </Option>
+          </Select>
+        </div>
       </div>
 
       <Card className="h-full w-full rounded-none">
@@ -76,17 +85,16 @@ export function OrderTable() {
             <tbody>
               {data?.data?.map(
                 (
-                  { user, product, orderDate, orderStatus, totalPrice,_id },
+                  { user, product, orderDate, orderStatus, totalPrice, _id },
                   index
                 ) => {
-  
                   const isLast = index === data?.data?.length - 1;
                   const classes = isLast
                     ? "p-4"
                     : "p-4 border-b border-blue-gray-50";
 
                   return (
-                    <tr   key= {_id}>
+                    <tr key={_id}>
                       <td className={classes}>
                         <div className="flex items-center gap-3">
                           <Avatar
@@ -130,15 +138,15 @@ export function OrderTable() {
                             size="sm"
                             variant="ghost"
                             value={orderStatus}
-                            color={
-                              orderStatus === "delivered"
-                                ? "green"
+                            className={`${
+                              orderStatus === "pending"
+                                ? " bg-blue-gray-600 text-white"
                                 : orderStatus === "processing"
-                                ? "amber"
-                                : orderStatus === "pending"
-                                ? "amber"
-                                : "red"
-                            }
+                                ? " bg-orange-300 text-white"
+                                : orderStatus === "delivered"
+                                ? "bg-green-700 text-white"
+                                : "bg-red-600 text-white"
+                            }`}
                           />
                         </div>
                       </td>
@@ -172,9 +180,11 @@ export function OrderTable() {
                       </td>
                       <td className={classes}>
                         <Tooltip content="Edit And Update Status">
-                          <IconButton variant="text">
-                            <PencilIcon className="h-4 w-4" />
-                          </IconButton>
+                          <Link to={`/admin-panel/orders/update/${_id}`}>
+                            <IconButton variant="text">
+                              <PencilIcon className="h-4 w-4" />
+                            </IconButton>
+                          </Link>
                         </Tooltip>
                       </td>
                     </tr>
