@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import { Bars3CenterLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { decodedToken } from "../../utils/jwt";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
   const { token } = useSelector((state) => state.userToken);
+  const user = decodedToken(token);
+  console.log(user);
 
   return (
     <div className="bg-transparent z-[999]">
@@ -32,12 +35,18 @@ const Header = () => {
                 <Link to={"/"} className="cursor-pointer">
                   About
                 </Link>
-                <Link to={"/admin-panel"} className="cursor-pointer">
-                  Admin Panel
-                </Link>
-                {token ? (
-                  <Link to={"/profile"}>Profile</Link>
-                ) : (
+                {user?.role === "admin" && (
+                  <Link to={"/admin-panel"} className="cursor-pointer">
+                    Admin Panel
+                  </Link>
+                )}
+                {user?.role === "user" && (
+                  <Link className="cursor-pointer" to={"/profile"}>
+                    Profile
+                  </Link>
+                )}
+
+                {!token && (
                   <>
                     {" "}
                     <Link to={"/login"} className="cursor-pointer">
@@ -98,27 +107,39 @@ const Header = () => {
                 >
                   About
                 </Link>
-                {token ? (
+                {user?.role === "admin" && (
                   <Link
-                    to={"/profile"}
-                    className="cursor-pointer"
+                    to={"/admin-panel"}
                     onClick={() => setMenu(!menu)}
+                    className="cursor-pointer"
+                  >
+                    Admin Panel
+                  </Link>
+                )}
+                {user?.role === "user" && (
+                  <Link
+                    onClick={() => setMenu(!menu)}
+                    className="cursor-pointer"
+                    to={"/profile"}
                   >
                     Profile
                   </Link>
-                ) : (
+                )}
+
+                {!token && (
                   <>
+                    {" "}
                     <Link
+                      onClick={() => setMenu(!menu)}
                       to={"/login"}
                       className="cursor-pointer"
-                      onClick={() => setMenu(!menu)}
                     >
                       Log In
                     </Link>
                     <Link
+                      onClick={() => setMenu(!menu)}
                       to={"/register"}
                       className="cursor-pointer"
-                      onClick={() => setMenu(!menu)}
                     >
                       Register
                     </Link>
