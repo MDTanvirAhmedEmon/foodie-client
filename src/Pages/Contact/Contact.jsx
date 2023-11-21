@@ -1,4 +1,6 @@
 import Header from "../shared/Header";
+import ContactInfo from "./ContactComponents/ContactInfo";
+import Map from "./ContactComponents/Map";
 
 const Contact = () => {
   return (
@@ -12,8 +14,11 @@ const Contact = () => {
         </div>
       </div>
 
-      <div>
-
+      <div className="bg-[#eeeeee] py-14 lg:py-28">
+            <ContactInfo></ContactInfo>
+      </div>
+      <div className="w-full">
+        <Map></Map>
       </div>
     </div>
   );
