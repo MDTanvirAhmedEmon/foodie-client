@@ -35,6 +35,9 @@ const Header = () => {
                 <Link to={"/about"} className="cursor-pointer">
                   About
                 </Link>
+                <Link to={"/contact"} className="cursor-pointer">
+                  Contact
+                </Link>
                 {user?.role === "admin" && (
                   <Link to={"/admin-panel"} className="cursor-pointer">
                     Admin Panel
@@ -106,6 +109,13 @@ const Header = () => {
                   onClick={() => setMenu(!menu)}
                 >
                   About
+                </Link>
+                <Link
+                  to={"/contact"}
+                  className="cursor-pointer"
+                  onClick={() => setMenu(!menu)}
+                >
+                  Contact
                 </Link>
                 {user?.role === "admin" && (
                   <Link

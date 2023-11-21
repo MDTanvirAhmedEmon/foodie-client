@@ -19,6 +19,7 @@ import Orders from "../Pages/Admin/Orders/Orders";
 import UpdateOrder from "../Pages/Admin/Orders/UpdateOrder";
 import PrivateAdminRoute from "./PrivateAdminRoute";
 import About from "../Pages/About/About";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/our-menu",
