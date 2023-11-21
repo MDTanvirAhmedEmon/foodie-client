@@ -17,6 +17,8 @@ import Admin from "../layout/Admin";
 import DashBoard from "../Pages/Admin/DashBoard/DashBoard";
 import Orders from "../Pages/Admin/Orders/Orders";
 import UpdateOrder from "../Pages/Admin/Orders/UpdateOrder";
+import PrivateAdminRoute from "./PrivateAdminRoute";
+import About from "../Pages/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/our-menu",
@@ -77,7 +83,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/admin-panel',
-    element: <PrivateRoute><Admin></Admin></PrivateRoute>,
+    element: <PrivateAdminRoute> <Admin></Admin> </PrivateAdminRoute>,
     children: [
       {
         path: "/admin-panel",

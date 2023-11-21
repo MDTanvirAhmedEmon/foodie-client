@@ -32,7 +32,7 @@ const Header = () => {
                 <Link to={"/"} className="cursor-pointer">
                   Offers
                 </Link>
-                <Link to={"/"} className="cursor-pointer">
+                <Link to={"/about"} className="cursor-pointer">
                   About
                 </Link>
                 {user?.role === "admin" && (
@@ -101,7 +101,7 @@ const Header = () => {
                   Offers
                 </Link>
                 <Link
-                  to={"/"}
+                  to={"/about"}
                   className="cursor-pointer"
                   onClick={() => setMenu(!menu)}
                 >

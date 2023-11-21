@@ -38,6 +38,7 @@ const Checkout = () => {
       totalPrice: total,
     }
     makeOrder(orderData)
+    console.log(orderData)
   };
   if(myOrderData?.success){
     navigate(`/thank-you`)
