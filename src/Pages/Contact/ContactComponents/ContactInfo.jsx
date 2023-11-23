@@ -1,4 +1,28 @@
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
+
+
 const ContactInfo = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_hb0rlgv', 'template_002rt6f', form.current, 'qnRUp2xbFgwWnBw4D')
+      .then((result) => {
+          if(result){
+            toast.success('Email sent successfully')
+            form.current.reset();
+          }
+      }, (error) => {
+          if(error){
+            toast.error('Email sent successfully')
+          }
+      });
+  };
+
+
   return (
     <div className="mx-3 md:container md:mx-auto flex flex-col lg:flex-row justify-between ">
       <div className="flex flex-col justify-center mb-8 lg:mb-0">
@@ -15,7 +39,7 @@ const ContactInfo = () => {
         </div>
       </div>
       <div>
-        <form className="md:w-[600px]">
+        <form  ref={form} onSubmit={sendEmail} className="md:w-[600px]">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex flex-col mt-3 md:w-1/2">
               <label htmlFor="">First Name</label>
@@ -23,6 +47,7 @@ const ContactInfo = () => {
                 className="border rounded-md p-3 mt-2 "
                 placeholder="First Name"
                 type="text"
+                name="first_name"
               />
             </div>
             <div className="flex flex-col mt-3 md:w-1/2">
@@ -31,6 +56,7 @@ const ContactInfo = () => {
                 className="border rounded-md p-3 mt-2 "
                 placeholder="Last Name"
                 type="text"
+                name="last_name"
               />
             </div>
           </div>
@@ -41,6 +67,7 @@ const ContactInfo = () => {
               className="border rounded-md p-3 mt-2 "
               placeholder="Your Email"
               type="email"
+              name="email"
             />
           </div>
 
@@ -52,6 +79,7 @@ const ContactInfo = () => {
               className="border rounded-md p-3 mt-2 "
               placeholder="Your message here..."
               type="text"
+              name="message"
             />
           </div>
 
@@ -61,6 +89,7 @@ const ContactInfo = () => {
             value="Send"
           />
         </form>
+        <Toaster></Toaster>
       </div>
     </div>
   );

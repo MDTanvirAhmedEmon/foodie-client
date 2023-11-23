@@ -66,7 +66,7 @@ const LogIn = () => {
               />
             </div>
             <p className="ml-3 md:ml-0">
-              Already Have An Account?{" "}
+              Do Not Have An Account?{" "}
               <Link
                 to={"/register"}
                 className=" text-blue-900 font-semibold md:ml-2"

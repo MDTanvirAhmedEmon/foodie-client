@@ -29,9 +29,6 @@ const Header = () => {
                 <Link to={"/our-menu"} className="cursor-pointer">
                   Our Menu
                 </Link>
-                <Link to={"/"} className="cursor-pointer">
-                  Offers
-                </Link>
                 <Link to={"/about"} className="cursor-pointer">
                   About
                 </Link>
@@ -95,13 +92,6 @@ const Header = () => {
                   onClick={() => setMenu(!menu)}
                 >
                   Our Menu
-                </Link>
-                <Link
-                  to={"/"}
-                  className="cursor-pointer"
-                  onClick={() => setMenu(!menu)}
-                >
-                  Offers
                 </Link>
                 <Link
                   to={"/about"}

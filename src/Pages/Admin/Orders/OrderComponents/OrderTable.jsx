@@ -41,7 +41,7 @@ export function OrderTable() {
     <div className="mt-6">
       <div className="flex justify-between items-center pr-8">
         <div>
-          <p>Order</p>
+
         </div>
         <div className="w-72">
           <Select label="Filter By Status">

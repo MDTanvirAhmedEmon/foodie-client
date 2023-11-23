@@ -7,25 +7,37 @@ import {
 } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { MobileSidebarMenu } from "./AdminLayoutComponents/MobileSidebarMenu";
+import { useSelector } from "react-redux";
+import { jwtDecode } from "jwt-decode";
 
 const Admin = () => {
   const [menu, setMenu] = useState(false);
 
+// get user name 
+  const {token} = useSelector((state) => state.userToken)
+  const userInfo = jwtDecode(token)
+
+
   return (
     <div className="">
       <div className="z-50 md:fixed left-0 top-0 right-0 h-12 flex items-center justify-between shadow-md bg-primary w-full">
-        <div className="flex items-center">
-          <h1 className="ml-3 md:ml-9 text-2xl font-bold text-white cursor-pointer">
-            FOO<span className="text-secondary">D</span>IE
-
-          </h1>
-          <div className="hidden md:block">
-          <Link target="_blank" to={`/`}><div className="flex items-center ml-10 cursor-pointer  text-white rounded-md ">
-              <TvIcon className="h-5 w-5 font-bold mr-2"></TvIcon>
-              <p className="text-sm">Live Site</p>
+        <div className="w-full flex justify-between items-center">
+          <div  className="flex items-center">
+            <h1 className="ml-3 md:ml-9 text-2xl font-bold text-white cursor-pointer">
+              FOO<span className="text-secondary">D</span>IE
+            </h1>
+            <div className="hidden md:block">
+              <Link target="_blank" to={`/`}>
+                <div className="flex items-center ml-10 cursor-pointer  text-white rounded-md ">
+                  <TvIcon className="h-5 w-5 font-bold mr-2"></TvIcon>
+                  <p className="text-sm">Live Site</p>
+                </div>
+              </Link>
             </div>
-            </Link>
-            </div>
+          </div>
+          <div className="mr-3 md:mr-9 text-white font-semibold capitalize hidden md:block">
+            <p> What’s up! {userInfo.role}</p>
+          </div>
         </div>
 
         <div className="mr-4 md:mr-0 block md:hidden text-white">
