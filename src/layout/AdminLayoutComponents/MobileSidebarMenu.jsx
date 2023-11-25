@@ -67,12 +67,14 @@ export function MobileSidebarMenu({ setMenu, menu }) {
             />
           </ListItemSuffix>
         </ListItem>
+        <Link to={'/admin-panel/users'}>
         <ListItem>
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
           Users
         </ListItem>
+        </Link>
         <ListItem>
           <ListItemPrefix>
             <Cog6ToothIcon className="h-5 w-5" />

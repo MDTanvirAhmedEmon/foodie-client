@@ -4,6 +4,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 const ContactInfo = () => {
+
+  // Email JS
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -17,7 +19,7 @@ const ContactInfo = () => {
           }
       }, (error) => {
           if(error){
-            toast.error('Email sent successfully')
+            toast.error('Something went wrong')
           }
       });
   };

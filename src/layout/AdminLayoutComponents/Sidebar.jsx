@@ -76,28 +76,33 @@ export function Sidebar() {
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
+              <Link to={`/admin-panel/all-products`}>
               <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 All Products
               </ListItem>
+              </Link>
+              <Link to={`/admin-panel/create-product`}>
               <ListItem>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Create Product
               </ListItem>
+              </Link>
             </List>
           </AccordionBody>
         </Accordion>
-
+        <Link to={'/admin-panel/users'}>
         <ListItem>
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
           Users
         </ListItem>
+        </Link>
         <ListItem>
           <ListItemPrefix>
             <Cog6ToothIcon className="h-5 w-5" />

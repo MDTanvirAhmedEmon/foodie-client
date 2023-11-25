@@ -17,8 +17,11 @@ const userApi = api.injectEndpoints({
         body: data,
       }),
     }),
+    getAllUsers: builder.query({
+      query: () => `/users`,
+    }),
 
   }),
 });
 
-export const {  useLogInUserMutation, useCreateUserMutation } = userApi;
+export const {  useLogInUserMutation, useCreateUserMutation, useGetAllUsersQuery } = userApi;

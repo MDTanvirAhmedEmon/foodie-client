@@ -70,7 +70,7 @@ const Admin = () => {
         <div className=" fixed left-0 top-12 bottom-0 hidden md:block">
           <Sidebar></Sidebar>
         </div>
-        <div className="w-full mt-2 md:mt-14 mx-3 md:mx-0 md:ml-72">
+        <div className="w-full mt-2 md:mt-14 px-3 md:mx-0 md:ml-72">
           <Outlet></Outlet>
         </div>
       </div>

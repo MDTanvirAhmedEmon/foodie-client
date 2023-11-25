@@ -38,8 +38,8 @@ export function OrderTable() {
 
 
   return (
-    <div className="mt-6">
-      <div className="flex justify-between items-center pr-8">
+    <div className="mt-6 md:ml-4">
+      <div className="flex justify-between items-center pr-8 ">
         <div>
 
         </div>

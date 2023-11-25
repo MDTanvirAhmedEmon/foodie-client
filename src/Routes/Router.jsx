@@ -20,6 +20,10 @@ import UpdateOrder from "../Pages/Admin/Orders/UpdateOrder";
 import PrivateAdminRoute from "./PrivateAdminRoute";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
+import AllProducts from "../Pages/Admin/Products/AllProducts";
+import CreateProducts from "../Pages/Admin/Products/CreateProducts";
+import UpdateProducts from "../Pages/Admin/Products/UpdateProducts";
+import Users from "../Pages/Admin/Users/Users";
 
 export const router = createBrowserRouter([
   {
@@ -101,6 +105,22 @@ export const router = createBrowserRouter([
       {
         path: "/admin-panel/orders/update/:id",
         element: <UpdateOrder></UpdateOrder>
+      },
+      {
+        path: "/admin-panel/all-products",
+        element: <AllProducts></AllProducts>
+      },
+      {
+        path: "/admin-panel/create-product",
+        element: <CreateProducts></CreateProducts>
+      },
+      {
+        path: "/admin-panel/update-product/:id",
+        element: <UpdateProducts></UpdateProducts>
+      },
+      {
+        path: "/admin-panel/users",
+        element: <Users></Users>
       },
     ]
   },

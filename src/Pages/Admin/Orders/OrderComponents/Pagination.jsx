@@ -25,10 +25,10 @@ export function Pagination({ active, setActive, totalData }) {
     const pageNumbers = Array.from({ length: totalPage }, (_, i) => i + 1);
   
     return (
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 ml-2 md:ml-0">
         <Button
           variant="text"
-          className="flex items-center gap-2"
+          className="hidden md:flex items-center gap-2"
           onClick={prev}
           disabled={active === 1}
         >
