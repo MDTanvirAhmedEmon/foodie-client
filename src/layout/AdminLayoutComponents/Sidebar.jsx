@@ -12,7 +12,6 @@ import {
   PresentationChartBarIcon,
   ShoppingBagIcon,
   UserCircleIcon,
-  Cog6ToothIcon,
   PowerIcon,
   ChevronDownIcon,
   ChevronRightIcon,
@@ -103,12 +102,6 @@ export function Sidebar() {
           Users
         </ListItem>
         </Link>
-        <ListItem>
-          <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Settings
-        </ListItem>
         <ListItem onClick={() => dispatch(removeToken())}>
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />

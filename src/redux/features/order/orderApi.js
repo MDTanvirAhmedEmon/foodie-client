@@ -39,6 +39,10 @@ const orderApi = api.injectEndpoints({
       query: (page) => `/order?page=${page}`,
       providesTags: ['order'],
     }),
+    getLatestOrder: builder.query({
+      query: () => `/order/latest-order`,
+      providesTags: ['order'],
+    }),
     getSingleOrder: builder.query({
       query: (id) => `/order/${id}`,
       providesTags: ['order'],
@@ -46,4 +50,4 @@ const orderApi = api.injectEndpoints({
   }),
 });
 
-export const { useUpdateUserMutation, useMakeOrderMutation, useGetMyOrderQuery, useGetSingleOrderQuery, useGetAllOrderQuery, useUpdateOrderMutation, usePaymentInitMutation } = orderApi;
+export const { useUpdateUserMutation, useMakeOrderMutation, useGetMyOrderQuery, useGetSingleOrderQuery, useGetAllOrderQuery, useUpdateOrderMutation, usePaymentInitMutation, useGetLatestOrderQuery } = orderApi;

@@ -12,7 +12,6 @@ import userImage from "../../../../assets/user2.png";
 import { useGetAllOrderQuery } from "../../../../redux/features/order/orderApi";
 import { Pagination } from "./Pagination";
 import { useState } from "react";
-import { Select, Option } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
 const TABLE_HEAD = [
@@ -39,27 +38,6 @@ export function OrderTable() {
 
   return (
     <div className="mt-6 md:ml-4">
-      <div className="flex justify-between items-center pr-8 ">
-        <div>
-
-        </div>
-        <div className="w-72">
-          <Select label="Filter By Status">
-          <Option className=" cursor-pointer" value="pending">
-            Pending
-          </Option>
-          <Option className=" cursor-pointer" value="processing">
-            Processing
-          </Option>
-          <Option className=" cursor-pointer" value="delivered">
-            Delivered
-          </Option>
-          <Option className=" cursor-pointer" value="cancel">
-            Cancel
-          </Option>
-          </Select>
-        </div>
-      </div>
 
       <Card className="h-full w-full rounded-none">
         <CardBody className="overflow-scroll px-0 z-0">

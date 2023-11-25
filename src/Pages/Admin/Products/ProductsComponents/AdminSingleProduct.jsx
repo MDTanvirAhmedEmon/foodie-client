@@ -40,7 +40,7 @@ const AdminSingleProduct = ({ product }) => {
         <p className="text-lg font-bold text-primary">
           Price: {product?.price}
         </p>
-        <p className="text-md">Discount Price: {product?.description}</p>
+        <p className="text-md">{product?.description}</p>
         <div className="text-right">
           <Link to={`/admin-panel/update-product/${product._id}`}>
             <p className=" text-blue-600 cursor-pointer font-semibold underline">

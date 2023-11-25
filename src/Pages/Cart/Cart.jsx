@@ -26,26 +26,23 @@ const Cart = () => {
       <div className="h-20 bg-primary z-[999]">
         <Header></Header>
       </div>
-      <div className="container mx-auto px-4 md:px-0 ">
+      <div className="container mx-auto px-4 md:px-0 mt-8">
+        <p className="text-3xl font-bold ">Your Cart:</p>
         <div className="flex flex-col lg:flex-row gap-10 py-7 md:py-14">
-          <div className="">
-            <p className="text-3xl font-bold mb-7">Your Cart:</p>
+          <div className="grid lg:grid-cols-2 gap-8">
             {products.map((product) => (
               <CartProduct key={product._id} product={product}></CartProduct>
             ))}
-
-            <div className="px-4 md:px-0 mt-10">
-              <p className="text-3xl font-bold">
-                Total Price: ${total.toFixed(2)}
-              </p>
-              <Link to={'/checkout'}> <button className="bg-primary py-3 px-6 text-lg font-semibold text-white rounded-lg mt-5 md:mt-10 ">
-                Proceed To Checkout
-              </button></Link>
-            </div>
           </div>
-          <div>
-            <p className="text-3xl font-bold mb-7">Add Drinks:</p>
-          </div>
+        </div>
+        <div className="px-4 md:px-0 mt-5">
+          <p className="md:text-3xl font-bold">Total Price: ${total.toFixed(2)}</p>
+          <Link to={"/checkout"}>
+            {" "}
+            <button className="bg-primary py-3 px-6 text-lg font-semibold text-white rounded-lg mt-5 md:mt-10 ">
+              Proceed To Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
