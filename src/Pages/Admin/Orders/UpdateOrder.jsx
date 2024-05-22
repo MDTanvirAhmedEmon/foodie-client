@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useParams } from "react-router-dom";
 import {
   useGetSingleOrderQuery,
@@ -20,7 +21,7 @@ const UpdateOrder = () => {
   }, [data]);
 
   const [updateOrder, { data: updatedData }] = useUpdateOrderMutation();
-  console.log(updatedData);
+
 
   const handleSelectedStatusChange = (e) => {
     setSelectedStatus(e.target.value);
@@ -30,7 +31,7 @@ const UpdateOrder = () => {
         orderStatus: e.target.value,
       },
     };
-    console.log(updatedStatusData);
+
     updateOrder(updatedStatusData);
   };
 

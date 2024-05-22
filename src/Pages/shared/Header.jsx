@@ -8,7 +8,6 @@ const Header = () => {
   const [menu, setMenu] = useState(false);
   const { token } = useSelector((state) => state.userToken);
   const user = decodedToken(token);
-  console.log(user);
 
   return (
     <div className="bg-transparent z-[999]">

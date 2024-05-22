@@ -38,7 +38,7 @@ const AdminSingleProduct = ({ product }) => {
       <div className="text-center">
         <h3 className="text-2xl font-bold">{product?.title}</h3>
         <p className="text-lg font-bold text-primary">
-          Price: {product?.price}
+          Price: ${product?.price}
         </p>
         <p className="text-md">{product?.description}</p>
         <div className="text-right">

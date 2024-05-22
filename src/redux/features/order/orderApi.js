@@ -10,20 +10,7 @@ const orderApi = api.injectEndpoints({
       }),
       invalidatesTags: ['user'],
     }),
-    makeOrder: builder.mutation({
-      query: (data) => ({
-        url: `/order/make-order`,
-        method: "POST",
-        body: data,
-      }),
-    }),
-    paymentInit: builder.mutation({
-      query: (data) => ({
-        url: `/payment/payment-init`,
-        method: "POST",
-        body: data,
-      }),
-    }),
+
     updateOrder: builder.mutation({
       query: ({ id, data }) => ({
         url: `/order/${id}`,
@@ -50,4 +37,4 @@ const orderApi = api.injectEndpoints({
   }),
 });
 
-export const { useUpdateUserMutation, useMakeOrderMutation, useGetMyOrderQuery, useGetSingleOrderQuery, useGetAllOrderQuery, useUpdateOrderMutation, usePaymentInitMutation, useGetLatestOrderQuery } = orderApi;
+export const { useUpdateUserMutation, useGetMyOrderQuery, useGetSingleOrderQuery, useGetAllOrderQuery, useUpdateOrderMutation, useGetLatestOrderQuery } = orderApi;

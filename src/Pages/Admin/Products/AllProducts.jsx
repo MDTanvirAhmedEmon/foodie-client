@@ -6,9 +6,6 @@ const AllProducts = () => {
     const {data, isLoading} = useGetProductsQuery();
 
 
-    console.log(data)
-
-
     if(isLoading)  {
         return <div className="my-20 ">
         <Spinner className="h-10 w-10 mx-auto" />

@@ -25,16 +25,13 @@ const TABLE_HEAD = [
 
 export function OrderTable() {
   const [active, setActive] = useState(1);
-  console.log(active);
+
   const { data, isLoading } = useGetAllOrderQuery(active);
   if (isLoading) {
     return <h1 className="py-10 text-center">Loading...</h1>;
   }
 
-  console.log(data);
   const totalData = data?.meta?.total;
-  console.log(totalData);
-
 
   return (
     <div className="mt-6 md:ml-4">

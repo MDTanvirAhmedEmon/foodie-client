@@ -1,34 +1,54 @@
+/* eslint-disable no-unused-vars */
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../shared/Header";
 import CheckoutProductCart from "./CheckoutComponents/CheckoutProductCart";
-import { useForm } from "react-hook-form";
 import { useGetSingleUserQuery } from "../../redux/features/products/productApi";
-import { useMakeOrderMutation, useUpdateUserMutation } from "../../redux/features/order/orderApi";
-import { useNavigate } from "react-router-dom";
 import { makeEmpty } from "../../redux/features/cart/cartSlice";
+import { useEffect, useState } from "react";
+import { useMakePaymentInitMutation } from "../../redux/features/payment/paymentApi";
 
 
 const Checkout = () => {
-  const navigate = useNavigate();
+  const [firstNameData, setFirstNameData] = useState('');
+  const [lastNameData, setLastNameData] = useState('');
+  const [emailData, setEmailData] = useState('');
+  const [addressData, setAddressData] = useState('');
+  const [cityData, setCityData] = useState('');
+  const [sateData, setStateData] = useState('');
+  const [postcodeData, setPostcodeData] = useState('');
+  const [phoneData, setPhoneData] = useState('');
+
   const { products, total } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  console.log(products)
 
-  const { register, handleSubmit } = useForm();
   const { data:currentUser } = useGetSingleUserQuery();
 
-  const [updateUser, {data:UpdatedUser}] = useUpdateUserMutation();
-  console.log(UpdatedUser)
-  const [makeOrder, {data:myOrderData, isLoading}] = useMakeOrderMutation();
-  console.log(myOrderData)
+
+  const [makePayment,{data:paymentData, isLoading: paymentLoading}] = useMakePaymentInitMutation()
+  console.log(paymentData);
+
+
   const burgerOrderDate = new Date().toISOString();
-  console.log(burgerOrderDate);
-  const handleFormData = (data) => {
-    const updatedData = {
-      id: currentUser?.data?._id,
-      data: data
-    };
-    updateUser(updatedData);
+
+  const allOrderInfo = {
+    total_amount: total,
+    product_name: "burger",
+    product_category: "fast food",
+    product_profile: "general",
+    cus_name: `${firstNameData} ${lastNameData}`,
+    cus_email: emailData,
+    cus_add1: addressData,
+    cus_city: cityData,
+    cus_state: sateData,
+    cus_postcode: postcodeData,
+    cus_country: "Bangladesh",
+    cus_phone: phoneData,
+    user_id: currentUser?.data?._id,
+  };
+
+
+  const handleFormData = (event) => {
+    event.preventDefault();
 
     const orderData = {
       user: currentUser?.data?._id,
@@ -37,16 +57,21 @@ const Checkout = () => {
       orderStatus: "processing",
       totalPrice: total,
     }
-    makeOrder(orderData)
-    console.log(orderData)
+    makePayment({allOrderInfo, orderData})
   };
-  if(myOrderData?.success){
-    navigate(`/thank-you`)
-    dispatch(makeEmpty())
-  }
-  if(isLoading){
+
+  useEffect(() => {
+    if (paymentData && paymentData.data && paymentData.data.url) {
+      dispatch(makeEmpty());
+      window.location.href = paymentData.data.url;
+    }
+  }, [paymentData, dispatch]);
+  
+
+  if(paymentLoading){
     return <div className="h-screen"> <p className="text-xl text-center mt-14">Loading...</p></div>
   }
+
 
   return (
     <div>
@@ -54,10 +79,10 @@ const Checkout = () => {
         <Header></Header>
       </div>
       <div className="container mx-auto flex flex-col lg:flex-row justify-between py-8 md:py-16">
-        <div className=" w-auto xl:w-2/3 px-3 md:px-0">
+        <div className=" w-auto xl:w-2/3 px-3 md:px-5">
           <p className="text-3xl font-bold mb-6 ">Billing details</p>
 
-          <form onSubmit={handleSubmit(handleFormData)} className="w-auto px-3 md:px-0">
+          <form onSubmit={handleFormData} className="w-auto px-3 md:px-0">
           <div className="flex flex-col md:flex-row gap-4">
               <div className="flex flex-col mt-3 md:w-1/2">
                 <label htmlFor="">First Name</label>
@@ -65,8 +90,8 @@ const Checkout = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="First Name"
                   type="text"
-                  defaultValue={currentUser?.data?.firstName}
-                  {...register("firstName", { required: true })}
+                  onChange={(e) => setFirstNameData(e.target.value)}
+                  required
                 />
               </div>
               <div className="flex flex-col mt-3 md:w-1/2">
@@ -75,8 +100,8 @@ const Checkout = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="Last Name"
                   type="text"
-                  defaultValue={currentUser?.data?.lastName}
-                  {...register("lastName", { required: true })}
+                  onChange={(e) => setLastNameData(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -88,8 +113,8 @@ const Checkout = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="Your Email"
                   type="email"
-                  defaultValue={currentUser?.data?.email}
-                  {...register("email", { required: true })}
+                  onChange={(e) => setEmailData(e.target.value)}
+                  required
                 />
               </div>
               <div className="flex flex-col mt-3 md:w-1/2">
@@ -98,8 +123,8 @@ const Checkout = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="Your Phone Number"
                   type="phone"
-                  defaultValue={currentUser?.data?.phone}
-                  {...register("phone", { required: true })}
+                  onChange={(e) => setPhoneData(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -110,8 +135,8 @@ const Checkout = () => {
                 className="border rounded-md p-3 mt-2 "
                 placeholder="Address In Detail"
                 type="text"
-                defaultValue={currentUser?.data?.address}
-                {...register("address", { required: true })}
+                onChange={(e) => setAddressData(e.target.value)}
+                required
               />
             </div>
 
@@ -122,8 +147,8 @@ const Checkout = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="District"
                   type="text"
-                  defaultValue={currentUser?.data?.district}
-                  {...register("district", { required: true })}
+                  onChange={(e) => setStateData(e.target.value)}
+                  required
                 />
               </div>
               <div className="flex flex-col mt-3 md:w-1/3">
@@ -132,8 +157,8 @@ const Checkout = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="Upazila"
                   type="text"
-                  defaultValue={currentUser?.data?.upazila}
-                  {...register("upazila", { required: true })}
+                  onChange={(e) => setCityData(e.target.value)}
+                  required
                 />
               </div>
               <div className="flex flex-col mt-3 md:w-1/3">
@@ -142,8 +167,8 @@ const Checkout = () => {
                   className="border rounded-md p-3 mt-2 "
                   placeholder="Post Office ZIP Code"
                   type="text"
-                  defaultValue={currentUser?.data?.zipCode}
-                  {...register("zipCode", { required: true })}
+                  onChange={(e) => setPostcodeData(e.target.value)}
+                  required
                 />
               </div>
             </div>
