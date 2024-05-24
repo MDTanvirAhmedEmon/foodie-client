@@ -24,6 +24,7 @@ import AllProducts from "../Pages/Admin/Products/AllProducts";
 import CreateProducts from "../Pages/Admin/Products/CreateProducts";
 import UpdateProducts from "../Pages/Admin/Products/UpdateProducts";
 import Users from "../Pages/Admin/Users/Users";
+import PaymentFail from "../Pages/PaymentFail/PaymentFail";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path: "/thank-you",
         element: <PrivateRoute><ThankYou></ThankYou></PrivateRoute>,
+      },
+      {
+        path: "/payment-fail",
+        element: <PrivateRoute><PaymentFail></PaymentFail></PrivateRoute>,
       },
     ],
   },
