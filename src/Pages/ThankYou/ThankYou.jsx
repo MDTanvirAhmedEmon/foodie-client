@@ -12,7 +12,7 @@ const ThankYou = () => {
                 <div className="text-center">
                     <h1 className="text-5xl md:text-8xl font-bold  text-primary mb-6" >Thank You</h1>
                     <p className="text-xl md:text-2xl">For Your Order</p>
-                    <p className="text-lg mt-5">View Order <Link to={`/profile`} className=" text-white bg-primary py-2 px-4 rounded-md ml-2">Details</Link></p>
+                    <p className="text-lg mt-5">View Order <Link to={`/profile/my-order`} className=" text-white bg-primary py-2 px-4 rounded-md ml-2">Details</Link></p>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ const Profile = () => {
 
 
   const { register, handleSubmit } = useForm();
-    const { data:currentUser } = useGetSingleUserQuery(undefined, {refetchOnMountOrArgChange: true});
+    const { data:currentUser, isLoading } = useGetSingleUserQuery(undefined, {refetchOnMountOrArgChange: true});
 
   const [updateUser, {data:UpdatedUser}] = useUpdateUserMutation();
   console.log(UpdatedUser)
@@ -29,6 +29,9 @@ const Profile = () => {
   }
 
 
+  if(isLoading){
+    return <div className="h-screen"> <p className="text-xl text-center mt-14">Loading...</p></div>
+}
   return (
     <div className="container mx-auto">
       <div className=" ">

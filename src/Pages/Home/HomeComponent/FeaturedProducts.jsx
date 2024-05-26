@@ -6,6 +6,10 @@ import { useGetProductsQuery } from "../../../redux/features/products/productApi
 const FeaturedProducts = () => {
     const {data , isLoading} = useGetProductsQuery();
 
+    if(isLoading){
+        return <div className="h-screen"> <p className="text-xl text-center mt-14">Loading...</p></div>
+    }
+
     return (
         <div>
             <div className="container mx-auto">
