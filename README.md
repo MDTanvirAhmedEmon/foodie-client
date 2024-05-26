@@ -21,7 +21,8 @@ npm install
 npm run dev
 ```
 
-The server will be running at ```
+The server will be running at 
+```
 http://localhost:3000
 ```
 
@@ -30,12 +31,16 @@ LogIn as a user:
 
 ```
 emon@gmail.com
+
 password: 123emon
+
 ```
 
 LogIn as a admin:
 
 ```
 emonadmin@gmail.com
+
 password: 1234554
+
 ```
