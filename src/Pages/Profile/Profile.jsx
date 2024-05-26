@@ -31,7 +31,8 @@ const Profile = () => {
 
   if(isLoading){
     return <div className="h-screen"> <p className="text-xl text-center mt-14">Loading...</p></div>
-}
+  } 
+  
   return (
     <div className="container mx-auto">
       <div className=" ">
