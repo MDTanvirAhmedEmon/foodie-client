@@ -1,7 +1,8 @@
 # Foodie
-=================================================
+
 ### Welcome to the foodie client project! This repository contains the client-side code for our foodie e-commerce based burger selling web application. This README file provides guidelines on how to run this project in your local machine.
-=================================================
+
+
 1.Clone the Repository:
 ```
 git clone https://github.com/MDTanvirAhmedEmon/foodie-client
