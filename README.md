@@ -1,5 +1,6 @@
-#Foodie
-Welcome to the foodie client project! This repository contains the client-side code for our foodie e-commerce based burger selling web application. This README file provides guidelines on how to run this project in your local machine.
+# Foodie
+=================================================
+### Welcome to the foodie client project! This repository contains the client-side code for our foodie e-commerce based burger selling web application. This README file provides guidelines on how to run this project in your local machine.
 =================================================
 1.Clone the Repository:
 ```
@@ -33,7 +34,6 @@ LogIn as a user:
 emon@gmail.com
 
 password: 123emon
-
 ```
 
 LogIn as a admin:
@@ -42,5 +42,4 @@ LogIn as a admin:
 emonadmin@gmail.com
 
 password: 1234554
-
 ```
